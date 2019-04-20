@@ -1,0 +1,13 @@
+--2019/04/20
+git --version 2.16.? 记不清了
+未知原因 git-bash here 无法启动（右键打开后出现gitbash 窗口，0.5s 内自动闪退，窗口状态： bash --login -i），git gui here 可以正常启动，并且可以正常推送，重启无效。
+参考CSDN、stack overflow采取了以下3种方法都无效：
+1. 更换null 文件；
+实际上null 文件无异常，null服务正常运行，
+没有open /dev/null or dup failed 错误，也没有在桌面上生成mintty.exe.stackdump 文件.
+2. rebase.exe -b 0x-------- msys-1.0/2.0.dll 也没有解决；
+git\usr\bin 下有 msys-2.0.dll 文件，无 msys-1.0.dll 
+3. 考虑是不是与安装了MinGW 有关，遂删除其Path, rebase msys-1.0.dll 也没有解决；
+
+最终先卸载 git
+装2.21.0 顺利解决问题。 
